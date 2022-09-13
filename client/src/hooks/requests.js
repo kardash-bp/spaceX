@@ -1,11 +1,13 @@
+const API_URL = 'v1'
+
 async function httpGetPlanets() {
-  const response = await fetch('http://localhost:5000/planets')
+  const response = await fetch(`${API_URL}/planets`)
 
   return await response.json()
 }
 
 async function httpGetLaunches() {
-  const response = await fetch('http://localhost:5000/launches')
+  const response = await fetch(`${API_URL}/launches`)
 
   const data = await response.json()
 
@@ -14,7 +16,7 @@ async function httpGetLaunches() {
 
 async function httpSubmitLaunch(launch) {
   try {
-    return await fetch('http://localhost:5000/launches', {
+    return await fetch(`${API_URL}/launches`, {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
@@ -30,7 +32,7 @@ async function httpSubmitLaunch(launch) {
 
 async function httpAbortLaunch(id) {
   try {
-    return await fetch(`http://localhost:5000/launches/${id}`, {
+    return await fetch(`${API_URL}/launches/${id}`, {
       method: 'delete',
     })
   } catch (err) {
