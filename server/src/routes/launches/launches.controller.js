@@ -8,7 +8,8 @@ const pagination = require('../../utils/pagination')
 
 async function httpGetAllLaunches(req, res) {
   const { skip, limit } = pagination(req.query)
-  return res.status(200).json(await getAllLaunches(skip, limit))
+  const data = await getAllLaunches(skip, limit)
+  return res.status(200).json(data)
 }
 
 async function httpAddNewLaunch(req, res) {

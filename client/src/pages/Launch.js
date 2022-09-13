@@ -4,8 +4,8 @@ import Clickable from '../components/Clickable'
 
 const Launch = (props) => {
   const selectorBody = useMemo(() => {
-    return props.planets?.map((planet) => (
-      <option value={planet.keplerName} key={planet.keplerName}>
+    return props.planets?.map((planet, index) => (
+      <option value={planet.keplerName} key={index}>
         {planet.keplerName}
       </option>
     ))
